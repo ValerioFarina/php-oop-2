@@ -11,7 +11,7 @@ class User {
         $this->first_name = $_first_name;
         $this->last_name = $_last_name;
         $this->email = $_email;
-        $this->age = $_age;
+        is_numeric($_age) && $_age > 0 ? $this->age = $_age : $this->age = null;
         $this->gender = $_gender;
         $this->nationality = $_nationality;
     }
@@ -33,7 +33,13 @@ class User {
     }
 
     public function setAge($_age) {
-        $this->age = $_age;
+        if ((is_numeric($_age) && $_age > 0) || $_age === null) {
+            $this->age = $_age;
+        } elseif (!is_numeric($_age)) {
+            throw new Exception('the age must be a numerical value');
+        } else {
+            throw new Exception('the age must be greater than zero');
+        }
     }
 
     public function getGender() {
@@ -53,12 +59,12 @@ class User {
     }
 
     public function getUserInfo() {
-        echo 'First name: ' . $this->getFirstName() . '<br>';
-        echo 'Last name: ' . $this->getLastName() . '<br>';
-        echo 'Email: ' . $this->getEmail() . '<br>';
-        echo 'Age: ' . $this->getAge() . '<br>';
-        echo 'Gender: ' . $this->getGender() . '<br>';
-        echo 'Nationality: ' . $this->getNationality() . '<br>';
+        echo "First name: {$this->getFirstName()} <br>";
+        echo "Last name: {$this->getLastName()} <br>";
+        echo "Email: {$this->getEmail()} <br>";
+        echo "Age: {$this->getAge()} <br>";
+        echo "Gender: {$this->getGender()} <br>";
+        echo "Nationality: {$this->getNationality()} <br>";
     }
 }
 ?>
