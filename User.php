@@ -32,12 +32,24 @@ class User {
         return $this->age;
     }
 
+    public function setAge($_age) {
+        $this->age = $_age;
+    }
+
     public function getGender() {
         return $this->gender;
     }
 
+    public function setGender($_gender) {
+        $this->gender = $_gender;
+    }
+
     public function getNationality() {
         return $this->nationality;
+    }
+
+    public function setNationality($_nationality) {
+        $this->nationality = $_nationality;
     }
 
     public function getUserInfo() {
