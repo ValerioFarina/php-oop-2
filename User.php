@@ -21,7 +21,7 @@ class User {
     }
 
     public function setFirstName($_first_name) {
-        $this->first_name = $_first_namer;
+        $this->first_name = $_first_name;
     }
 
     public function getLastName() {
@@ -29,7 +29,7 @@ class User {
     }
 
     public function setLastName($_last_name) {
-        $this->last_name = $_last_namer;
+        $this->last_name = $_last_name;
     }
 
     public function getEmail() {
@@ -38,7 +38,7 @@ class User {
 
     public function setEmail($_email) {
         if (strpos($_email, "@") !== false) {
-            $this->age = $_age;
+            $this->email = $_email;
         } else {
             throw new Exception('the email is not valid');
         }
