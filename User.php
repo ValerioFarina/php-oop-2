@@ -20,8 +20,16 @@ class User {
         return $this->first_name;
     }
 
+    public function setFirstName($_first_name) {
+        $this->first_name = $_first_namer;
+    }
+
     public function getLastName() {
         return $this->last_name;
+    }
+
+    public function setLastName($_last_name) {
+        $this->last_name = $_last_namer;
     }
 
     public function getEmail() {
@@ -66,7 +74,7 @@ class User {
         $this->nationality = $_nationality;
     }
 
-    public function getUserInfo() {
+    public function printUserInfo() {
         echo "First name: {$this->getFirstName()} <br>";
         echo "Last name: {$this->getLastName()} <br>";
         echo "Email: {$this->getEmail()} <br>";
