@@ -10,7 +10,7 @@ class User {
     function __construct($_first_name, $_last_name, $_email, $_age = null, $_gender = "", $_nationality = "") {
         $this->first_name = $_first_name;
         $this->last_name = $_last_name;
-        $this->email = $_email;
+        strpos($_email, "@") !== false ? $this->email = $_email : $this->email = "";
         is_numeric($_age) && $_age > 0 ? $this->age = $_age : $this->age = null;
         $this->gender = $_gender;
         $this->nationality = $_nationality;
@@ -28,12 +28,20 @@ class User {
         return $this->email;
     }
 
+    public function setEmail($_email) {
+        if (strpos($_email, "@") !== false) {
+            $this->age = $_age;
+        } else {
+            throw new Exception('the email is not valid');
+        }
+    }
+
     public function getAge() {
         return $this->age;
     }
 
     public function setAge($_age) {
-        if ((is_numeric($_age) && $_age > 0) || $_age === null) {
+        if (is_numeric($_age) && $_age > 0) {
             $this->age = $_age;
         } elseif (!is_numeric($_age)) {
             throw new Exception('the age must be a numerical value');
